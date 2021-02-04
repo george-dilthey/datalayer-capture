@@ -8,15 +8,15 @@
     "content_scripts": [
         {
           "matches": ["<all_urls>"],
-          "js": ["content.js"]
+          "js": ["/js/content.js"]
         }
       ],
     "background": {
-        "scripts": ["background.js"]
+        "scripts": ["/js/background.js"]
     },  
     "browser_action": {
      "default_icon": "icon.png"
     },
-    "web_accessible_resources" : ["inject.js"],
+    "web_accessible_resources" : ["/js/inject.js"],
     "permissions": ["activeTab", "declarativeContent", "storage", "<all_urls>"]
   }
