@@ -2,10 +2,9 @@ chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         if (request.message === "clicked_browser_action") {
             injectScript(chrome.extension.getURL('/js/inject.js'), 'body');
-            document.addEventListener('yourCustomEvent', function (e) {
+            document.addEventListener('sendDataLayer', function (e) {
                 data = e.detail;
-                sendResponse(data)
-                console.log(data)
+                sendResponse(JSON.parse(data))
             });
         }
         return true;

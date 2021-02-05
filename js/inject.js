@@ -1,13 +1,7 @@
 function getDataLayer() {
     var dl = window.dataLayer;
-    var dlArray = [];
-    if (dl != null & dl != undefined && dl.length > 0) {
-        for (i = 0; i < dl.length; i++) {
-            dlArray.push(JSON.stringify(dl[i]))
-        }
-        var data = dlArray;
-        document.dispatchEvent(new CustomEvent('yourCustomEvent', { detail: data }));
-    }
+    var data = JSON.stringify(dl);
+    document.dispatchEvent(new CustomEvent('sendDataLayer', { detail: data }));
 }
 
 getDataLayer()
