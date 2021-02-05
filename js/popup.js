@@ -63,6 +63,7 @@ function addDiv(array) {
       }
     });
   }
+  
   //Add click to copy
   var copyJSONButtons = document.getElementsByClassName('copy');
   for (i = 0; i < copyJSONButtons.length; i++) {
@@ -90,9 +91,4 @@ function syntaxHighlight(json) {
     }
     return '<span class="' + cls + '">' + match + '</span>';
   });
-}
-
-function copyJson() {
-  
-
 }
