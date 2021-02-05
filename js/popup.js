@@ -12,19 +12,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function addDiv(array) {
-  console.log(array)
+  document.querySelector('#dataLayerAccs').innerHTML = "";
+
   if (array != null && array != undefined && array.length > 0) {
     for (i = 0; i < array.length; i++) {
-      var button = document.createElement("button")
-      button.setAttribute("class", "accordion");
-      button.innerText = (JSON.stringify(array[i].event));
+      var eventButton = document.createElement("button")
+      eventButton.setAttribute("class", "accordion");
+      eventButton.innerText = (JSON.stringify(array[i].event));
+
+      var copyButton = document.createElement("button")
+      copyButton.setAttribute("class", "copy")
+      copyButton.setAttribute("onclick", "copyJson()")
+      copyButton.innerText = "Copy JSON"
 
       var div = document.createElement("div")
       div.setAttribute("class", "panel");
       div.innerHTML = ("<pre>" + syntaxHighlight(JSON.stringify(array[i],null,'\t'))+ "</pre>");
 
-      document.querySelector('#dataLayerAccs').appendChild(button);
+      document.querySelector('#dataLayerAccs').appendChild(eventButton);
       document.querySelector('#dataLayerAccs').appendChild(div);
+      document.querySelector('#dataLayerAccs').appendChild(copyButton);
     }
   }
   else {
@@ -47,6 +54,7 @@ function addDiv(array) {
       }
     });
   }
+  
 }
 
 function syntaxHighlight(json) {
@@ -66,4 +74,12 @@ function syntaxHighlight(json) {
       }
       return '<span class="' + cls + '">' + match + '</span>';
   });
+}
+
+function copyJson() {
+  alert("Copied the text: " + copyText.value);
+  var copyText = document.closest('div.panel');
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
 }
