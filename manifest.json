@@ -19,5 +19,5 @@
      "default_popup": "popup.html"
     },
     "web_accessible_resources" : ["/js/inject.js"],
-    "permissions": ["activeTab", "declarativeContent", "storage", "<all_urls>"]
+    "permissions": ["activeTab", "declarativeContent", "storage", "<all_urls>", "alarms"]
   }

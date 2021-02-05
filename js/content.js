@@ -2,8 +2,13 @@ chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         if (request.message === "clicked_browser_action") {
             injectScript(chrome.extension.getURL('/js/inject.js'), 'body');
-            sendResponse("This response is going back to popup.js")
+            document.addEventListener('yourCustomEvent', function (e) {
+                data = e.detail;
+                sendResponse(data)
+                console.log(data)
+            });
         }
+        return true;
     }
 );
 
