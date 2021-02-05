@@ -21,7 +21,7 @@ function addDiv(array) {
 
       var div = document.createElement("div")
       div.setAttribute("class", "panel");
-      div.innerHTML = ("<p>"+JSON.stringify(array[i],null,2)+"</p>");
+      div.innerHTML = ("<pre>" + syntaxHighlight(JSON.stringify(array[i],null,'\t'))+ "</pre>");
 
       document.querySelector('#dataLayerAccs').appendChild(button);
       document.querySelector('#dataLayerAccs').appendChild(div);
