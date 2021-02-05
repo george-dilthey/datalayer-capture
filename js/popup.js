@@ -7,11 +7,19 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }, false);
-  
-  
-
 }, false); 
 
+
+
+function addDiv(content) {
+  console.log(content)
+  var div = document.createElement("div");
+  div.setAttribute("id", "dlobject");
+  div.innerText = (content);
+  document.body.appendChild(div);
+}
+
+//ignore this, it doesn't work.
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     console.log('request received: ' + request)
@@ -21,11 +29,3 @@ chrome.runtime.onMessage.addListener(
     }
   }
 );
-
-function addDiv(content) {
-  console.log(content)
-  var div = document.createElement("div");
-  div.setAttribute("id", "dlobject");
-  div.innerText = (content);
-  document.body.appendChild(div);
-}

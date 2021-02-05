@@ -3,7 +3,7 @@ function getDataLayer() {
     if (dl != null & dl != undefined && dl.length > 0) {
         for(i=0; i<dl.length; i++){
             if(dl[i].ecommerce != null && dl[i].ecommerce != undefined){
-                window.postMessage({ type: "FROM_PAGE", text: "Hello from the webpage!" }, "*"); 
+                //this is where i need a way to push the dl[i] up to content.js so that it can be pushed to popup.js
             }
         }
     }
