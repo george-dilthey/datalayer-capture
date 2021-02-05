@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var getDataLayerButton = document.getElementById('checkPage');
+  var getDataLayerButton = document.getElementById('getDataLayer');
   getDataLayerButton.addEventListener('click', function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, { "message": "clicked_browser_action" }, function (response) {
@@ -63,7 +63,7 @@ function addDiv(array) {
       }
     });
   }
-  
+
   //Add click to copy
   var copyJSONButtons = document.getElementsByClassName('copy');
   for (i = 0; i < copyJSONButtons.length; i++) {
